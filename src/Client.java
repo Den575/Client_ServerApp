@@ -86,7 +86,7 @@ public class Client extends JFrame implements Runnable {
                 JOptionPane.showMessageDialog(null,a);
                 if(a.equals("Successful login")){
                     jFrame.dispose();
-                    MainForm mainForm = new MainForm();
+                    MainForm mainForm = new MainForm("MainPanel");
                 }
                 else if(a.equals("Not successful login")){
                     jTextField.setForeground(Color.RED);
@@ -119,7 +119,7 @@ public class Client extends JFrame implements Runnable {
         jFrame.setSize(240,180);
         jFrame.setLocationRelativeTo(null);
         jFrame.setTitle("FilmWeb");
-        ImageIcon imageIcon = new ImageIcon("C://Users//Denis//Desktop//Mateusz/clapperboard.png");
+        ImageIcon imageIcon = new ImageIcon("Resurses/clapperboard.png");
         jFrame.setIconImage(imageIcon.getImage());
         return jFrame;
     }
