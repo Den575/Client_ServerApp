@@ -10,10 +10,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Connection {
+public class MainConnection {
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, XMLStreamException, SQLException, ClassNotFoundException {
 
-        }
+    }
 
 
     public void connecting(String[] data) throws ParserConfigurationException, IOException, SAXException, XMLStreamException, SQLException, ClassNotFoundException {
@@ -25,28 +25,13 @@ public class Connection {
         try (java.sql.Connection connection = DriverManager.getConnection(connectiesUrl, userName, password);
              Statement statement = connection.createStatement()) {
             System.out.println("Connection");
-            Server server = new Server();
             if(data[0]=="" && data[1]==""){
                 return;
             }
-            if(data[0].equals("Table") && data[1].equals("Data")){
-                ResultSet resultSet = statement.executeQuery("select * from users;");
-                String id="";
-                String user="";
-                String pass="";
-                while (resultSet.next()) {
-                    id += resultSet.getString("id")+" ";
-                    user += resultSet.getString("user")+" ";
-                    pass += resultSet.getString("pass")+" ";
-                }
-                String[] tab ={id,user,pass};
-                server.tableData(tab);
-                return;
-            }
             try {
-
                 ResultSet resultSet = statement.executeQuery("select * from users where user = '"+data[0]+"' and pass = '"+data[1]+"';");
                 //statement.executeUpdate("CREATE TABLE `"+a+"` (`user_id` INT(5) NOT NULL AUTO_INCREMENT, `username` VARCHAR(50), PRIMARY KEY(`user_id`), INDEX(`username`));");
+                MainServer server = new MainServer();
                 server.logIn(resultSet.next());
             }catch (Exception e){
             }

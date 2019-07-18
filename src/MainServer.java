@@ -10,7 +10,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.sql.SQLException;
 
-public class Server implements Runnable {
+public class MainServer implements Runnable {
 
     static private ServerSocket server;
     static private Socket connection;
@@ -19,22 +19,22 @@ public class Server implements Runnable {
     private static String tekstyk;
 
     public static void main(String[] args){
-        Server ser = new Server();
-        ser.run();
+        MainServer mainServer = new MainServer();
+        mainServer.run();
     }
 
     @Override
     public void run() {
         try{
-            server = new ServerSocket(5678, 10);
+            server = new ServerSocket(6000, 100);
             while (true){
                 connection = server.accept();
                 output = new ObjectOutputStream(connection.getOutputStream());
                 input = new ObjectInputStream(connection.getInputStream());
                 tekstyk = (String)input.readObject();
-                Connection connectionnn = new Connection();
+                MainConnection mainConnection = new MainConnection();
                 String[] data = tekstyk.split("\n");
-                connectionnn.connecting(data);
+                mainConnection.connecting(data);
             }
         }catch (UnknownHostException e){
         }catch (IOException e){
@@ -50,23 +50,15 @@ public class Server implements Runnable {
         if(log==true){
             System.out.println("Successful login");
             try{
-                String[] data = {"Successful login"};
-                output.writeObject(data);
+                output.writeObject("Successful login");
             }catch (IOException e){ }
         }else{
             System.out.println("Not successful login");
             try{
-                String[] data = {"Not successful login"};
-                output.writeObject(data);
+                output.writeObject("Not successful login");
             }
             catch (IOException e){ }
         }
-    }
-    public void tableData(String[] tab){
-        try{
-            output.writeObject(tab);
-        }
-        catch (IOException e){ }
     }
 
 }
