@@ -9,7 +9,7 @@ public class Ser {
         ServerSocket serverSocket = new ServerSocket(5678);
         Socket socket = serverSocket.accept();
         OutputStreamWriter writer = new OutputStreamWriter(socket.getOutputStream());
-        writer.write("<h1>Java</h1>");
+        writer.write("<h1>Hello :)</h1>");
         writer.flush();
 
 

@@ -7,22 +7,26 @@
       <change afterPath="$PROJECT_DIR$/../JavaSpring/src/main/java/TeastBean.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../JavaSpring/src/main/java/TestSpring.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../JavaSpring/src/main/resources/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Connection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Server.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../SpringJava/sweater/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../SpringJava/sweater/src/main/java/hello/Application.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../SpringJava/sweater/src/main/java/hello/MainController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../SpringJava/sweater/src/main/java/hello/User.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../SpringJava/sweater/src/main/java/hello/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerApp/MainConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerApp/MainMenu$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerApp/MainMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerApp/MainServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerApp/MenuMain$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerApp/MenuMain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ServerApp/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerApp/Client$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ServerApp/Client$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerApp/Client$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ServerApp/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerApp/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ServerApp/JTableExample$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ServerApp/JTableExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ServerApp/Ser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerApp/Ser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JTableExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ser.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -82,8 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="553">
-              <caret line="232" column="38" selection-start-line="232" selection-start-column="38" selection-end-line="232" selection-end-column="38" />
+            <state relative-caret-position="366">
+              <caret line="91" column="21" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/JTableExample.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Ser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="43" column="42" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="42" />
+            <state relative-caret-position="238">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -124,7 +128,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/46b5a755-7413-44ec-a979-c047755a9d59/console.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -152,7 +156,6 @@
         <option value="$PROJECT_DIR$/src/Gui.form" />
         <option value="$PROJECT_DIR$/src/Gui.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/Ser.java" />
         <option value="$PROJECT_DIR$/src/LogInForm.java" />
         <option value="$PROJECT_DIR$/src/Form.form" />
         <option value="$PROJECT_DIR$/src/Form.java" />
@@ -173,13 +176,14 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/46b5a755-7413-44ec-a979-c047755a9d59/console.sql" />
         <option value="$PROJECT_DIR$/src/Connection.java" />
         <option value="$PROJECT_DIR$/src/Client.java" />
+        <option value="$PROJECT_DIR$/src/Ser.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="width" value="978" />
-    <option name="height" value="1039" />
+    <option name="x" value="-10" />
+    <option name="width" value="979" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -248,7 +252,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.Ser">
     <configuration name="Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Client" />
       <module name="ServerApp" />
@@ -334,16 +338,17 @@
       <workItem from="1563202296763" duration="5920000" />
       <workItem from="1563440105024" duration="23536000" />
       <workItem from="1563471553380" duration="199000" />
+      <workItem from="1563483179093" duration="4027000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73674000" />
+    <option name="totallyTimeSpent" value="77701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15838926" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16040269" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -396,16 +401,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/Ser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/LogInForm.java" />
     <entry file="file://$PROJECT_DIR$/src/Form.form" />
     <entry file="file://$PROJECT_DIR$/src/Form.java" />
@@ -417,13 +412,7 @@
     <entry file="file://$PROJECT_DIR$/src/MainFrame.java" />
     <entry file="file://$PROJECT_DIR$/src/MainForm.java" />
     <entry file="file://$PROJECT_DIR$/src/Runner.java" />
-    <entry file="file://$PROJECT_DIR$/src/MainServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="35" column="34" lean-forward="true" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainServer.java" />
     <entry file="das://46b5a755-7413-44ec-a979-c047755a9d59/schema/test/table/users.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -431,50 +420,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1470">
-          <caret line="19" column="40" lean-forward="true" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="232" column="38" selection-start-line="232" selection-start-column="38" selection-end-line="232" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JTableExample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="43" column="42" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MenuMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainConnection.java" />
+    <entry file="file://$PROJECT_DIR$/src/MainMenu.java" />
+    <entry file="file://$PROJECT_DIR$/src/MenuMain.java" />
     <entry file="file://$PROJECT_DIR$/src/Connection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -496,6 +444,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="45" selection-start-column="45" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JTableExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="91" column="21" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

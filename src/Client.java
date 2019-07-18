@@ -32,21 +32,23 @@ public class Client extends JFrame implements Runnable {
     static JTextField jTextField = new JTextField(30);
     static JPasswordField jPasswordField = new JPasswordField(30);
 
-    static JLabel id = new JLabel("ID");
+    static JLabel id = new JLabel("Id");
+    static JLabel title = new JLabel("Title");
     static JLabel name = new JLabel("Name");
-    static JLabel data = new JLabel("Data");
-    static JLabel status = new JLabel("Status");
+    static JLabel surName = new JLabel("Surname");
+    static JLabel date = new JLabel("Date");
 
     static JTextField idTF = new JTextField();
+    static JTextField titleTF = new JTextField();
     static JTextField nameTF = new JTextField();
-    static JTextField dataTF = new JTextField();
-    static JTextField statusTF = new JTextField();
+    static JTextField surNameTF = new JTextField();
+    static JTextField dateTF = new JTextField();
 
     static JButton add = new JButton("Add");
     static JButton delete = new JButton("Delete");
     static JButton update = new JButton("Update");
 
-    static Object[] headers = {"Name", "Surname", "Telephone"};
+    static Object[] headers = {"Id", "Title", "Name"};
 
 
     public static void main(String[] args) {
@@ -85,7 +87,7 @@ public class Client extends JFrame implements Runnable {
 
         jPanel.revalidate();
 
-
+        //Log in
         jButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -99,6 +101,7 @@ public class Client extends JFrame implements Runnable {
             }
         });
 
+        //Button Add Action
         add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -115,6 +118,7 @@ public class Client extends JFrame implements Runnable {
         });
     }
 
+    //Connecting to server
     @Override
     public void run() {
         try {
@@ -123,7 +127,7 @@ public class Client extends JFrame implements Runnable {
                 output = new ObjectOutputStream(connection.getOutputStream());
                 input = new ObjectInputStream(connection.getInputStream());
                try{
-                   TimeUnit.SECONDS.sleep(3);
+                   TimeUnit.SECONDS.sleep(2);
                }
                catch (InterruptedException e){
                }
@@ -136,12 +140,12 @@ public class Client extends JFrame implements Runnable {
                     jTextField.setForeground(Color.RED);
                     jPasswordField.setForeground(Color.RED);
                 } else if (a.length > 1) {
-                    jTabPeople = new JTable(getIbform(a), headers);
+                    jTabPeople = new JTable(getObform(a), headers);
                     newPanel.add(jTabPeople);
                     JScrollPane jscrlp = new JScrollPane(jTabPeople);
-                    newPanel.setPreferredSize(new Dimension(250, 100));
+                    newPanel.setPreferredSize(new Dimension(230, 100));
                     newPanel.add(jscrlp);
-                    jscrlp.setBounds(200, 5, 500, 100);
+                    jscrlp.setBounds(230, 5, 500, 100);
                 }
 
             }
@@ -170,7 +174,7 @@ public class Client extends JFrame implements Runnable {
         jFrame.setResizable(false);
         jFrame.setSize(240, 180);
         jFrame.setLocationRelativeTo(null);
-        jFrame.setTitle("FilmWeb");
+        jFrame.setTitle("MOVIE Rental");
         ImageIcon imageIcon = new ImageIcon("Resurses/clapperboard.png");
         jFrame.setIconImage(imageIcon.getImage());
         return jFrame;
@@ -184,74 +188,70 @@ public class Client extends JFrame implements Runnable {
         jFrame.setLocationRelativeTo(null);
         jFrame.add(newPanel);
         newPanel.setLayout(null);
-        newPanel.setBackground(Color.CYAN);
-        newPanel.add(id);
-        newPanel.add(name);
-        id.setBounds(12, 12, 40, 20);
-        name.setBounds(12, 46, 40, 20);
-        jFrame.validate();
-        newPanel.add(data);
-        newPanel.add(status);
+        newPanel.setBackground(new Color(135, 206, 250));
 
-        id.setBounds(12, 12, 40, 20);
-        name.setBounds(12, 46, 40, 20);
-        data.setBounds(12, 79, 40, 20);
-        status.setBounds(12, 113, 40, 20);
+        newPanel.add(id);
+        newPanel.add(title);
+        newPanel.add(name);
+        newPanel.add(surName);
+        newPanel.add(date);
+
+        jFrame.validate();
+
+        id.setBounds(12, 12, 50, 20);
+        title.setBounds(12, 46, 50, 20);
+        name.setBounds(12, 79, 50, 20);
+        surName.setBounds(12, 113, 50, 20);
+        date.setBounds(12, 147, 50, 20);
 
         newPanel.add(idTF);
+        newPanel.add(titleTF);
         newPanel.add(nameTF);
-        newPanel.add(dataTF);
-        newPanel.add(statusTF);
+        newPanel.add(surNameTF);
+        newPanel.add(dateTF);
 
-        idTF.setBounds(55, 12, 120, 20);
-        nameTF.setBounds(55, 46, 120, 20);
-        dataTF.setBounds(55, 79, 120, 20);
-        statusTF.setBounds(55, 113, 120, 20);
+        idTF.setBounds(70, 12, 120, 20);
+        titleTF.setBounds(70, 46, 120, 20);
+        nameTF.setBounds(70, 79, 120, 20);
+        surNameTF.setBounds(70, 113, 120, 20);
+        dateTF.setBounds(70, 147, 120, 20);
 
         newPanel.add(add);
         newPanel.add(delete);
         newPanel.add(update);
 
-        add.setBounds(12, 147, 162, 20);
-        update.setBounds(12, 181, 162, 20);
-        delete.setBounds(12, 215, 162, 20);
-        newPanel.setBounds(0,0,700,500);
+        add.setBounds(12, 181, 178, 20);
+        update.setBounds(12, 215, 178, 20);
+        delete.setBounds(12, 249, 178, 20);
+
 
 
         Object[][] objects={};
         jTabPeople = new JTable(objects, headers);
+        jTabPeople.setBackground(Color.LIGHT_GRAY);
+        jTabPeople.setForeground(Color.BLACK);
         newPanel.add(jTabPeople);
         JScrollPane jscrlp = new JScrollPane(jTabPeople);
-        newPanel.setPreferredSize(new Dimension(250, 100));
+        newPanel.setPreferredSize(new Dimension(230, 100));
         newPanel.add(jscrlp);
-        jscrlp.setBounds(200, 5, 500, 100);
-
-        jFrame.add(tablePanel);
-        tablePanel.setLayout(new BasicScrollBarUI());
-        tablePanel.setBackground(Color.RED);
-        tablePanel.setBounds(700,2,300,300);
-        JButton jButton = new JButton("Den");
-        tablePanel.add(jButton);
-
-
-
+        jscrlp.setBounds(230, 5, 500, 100);
 
     }
 
-    public Object[][] getIbform(String[] q) {
+    public Object[][] getObform(String[] serverData) {
         String a = "";
-        for (int i = 0; i < q.length; i++) {
-            a += q[i];
+        for (int i = 0; i < serverData.length; i++) {
+            a += serverData[i];
         }
-        String[] qq = a.split(" ");
-        String[][] tab = new String[qq.length / 3][3];
+        String[] newServerData = a.split(" ");
+        String[][] table = new String[newServerData.length / 3][3];
         int count=0;
         for(int i=0;i<3;i++){
-            for(int j=0;j<tab.length;j++){
-                tab[j][i]=qq[count];
+            for(int j=0;j<table.length;j++){
+                table[j][i]=newServerData[count];
                 count++;
             }
         }
-    return tab;
+    return table;
     }
 }
