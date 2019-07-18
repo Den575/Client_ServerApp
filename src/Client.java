@@ -86,7 +86,7 @@ public class Client extends JFrame implements Runnable {
                 JOptionPane.showMessageDialog(null,a);
                 if(a.equals("Successful login")){
                     jFrame.dispose();
-                    MainForm mainForm = new MainForm("MainPanel");
+                    MenuMain menuMain = new MenuMain("1");
                 }
                 else if(a.equals("Not successful login")){
                     jTextField.setForeground(Color.RED);
