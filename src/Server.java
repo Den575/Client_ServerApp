@@ -48,7 +48,6 @@ public class Server implements Runnable {
     }
     public void logIn(boolean log){
         if(log==true){
-            System.out.println("Successful login");
             try{
                 String[] data = {"Successful login"};
                 output.writeObject(data);
@@ -62,9 +61,19 @@ public class Server implements Runnable {
             catch (IOException e){ }
         }
     }
+
     public void tableData(String[] tab){
         try{
             output.writeObject(tab);
+        }
+        catch (IOException e){ }
+    }
+
+    public void addData(Boolean add){
+        try{
+            String[] adData = {"Not successful login"};
+            output.writeObject(adData);
+            System.out.println("Add Data");
         }
         catch (IOException e){ }
     }

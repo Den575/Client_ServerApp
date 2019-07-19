@@ -1,3 +1,5 @@
+import com.toedter.calendar.JDateChooser;
+
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.*;
@@ -11,6 +13,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.awt.Dimension;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class Client extends JFrame implements Runnable {
@@ -27,7 +30,6 @@ public class Client extends JFrame implements Runnable {
     static JFrame jFrame = getFrame();
     static JPanel jPanel = new JPanel();
     static JPanel newPanel = new JPanel();
-    static JPanel tablePanel = new JPanel();
 
     static JTextField jTextField = new JTextField(30);
     static JPasswordField jPasswordField = new JPasswordField(30);
@@ -37,18 +39,21 @@ public class Client extends JFrame implements Runnable {
     static JLabel name = new JLabel("Name");
     static JLabel surName = new JLabel("Surname");
     static JLabel date = new JLabel("Date");
+    static JLabel status = new JLabel("Status");
 
     static JTextField idTF = new JTextField();
     static JTextField titleTF = new JTextField();
     static JTextField nameTF = new JTextField();
     static JTextField surNameTF = new JTextField();
-    static JTextField dateTF = new JTextField();
+    static JDateChooser dateTF = new JDateChooser();
+    static JComboBox statusCB = new JComboBox();
+    static JTextField[] pola = {idTF,titleTF,nameTF,surNameTF};
 
     static JButton add = new JButton("Add");
     static JButton delete = new JButton("Delete");
     static JButton update = new JButton("Update");
 
-    static Object[] headers = {"Id", "Title", "Name"};
+    static Object[] headers = {"Id", "Title", "Name","Surname","Date","Status"};
 
 
     public static void main(String[] args) {
@@ -85,6 +90,9 @@ public class Client extends JFrame implements Runnable {
         jButton.setBounds(25, 100, 179, 20);
         jPanel.add(jButton);
 
+        statusCB.addItem("Wypożyczony");
+        statusCB.addItem("Nie wypożyczony");
+
         jPanel.revalidate();
 
         //Log in
@@ -106,13 +114,16 @@ public class Client extends JFrame implements Runnable {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == add) {
-                    sendData("Table\nData");
-                    /*if (idTF.getText().equals("") && nameTF.getText().equals("")){
+                    if (idTF.getText().equals("") && titleTF.getText().equals("") && nameTF.getText().equals("") && surNameTF.getText().equals("")  && dateTF.getDate().toString().equals("") && statusCB.getAction().toString().equals("")){
                         return;
                     }
                     else{
-                        sendData(idTF.getText()+"\n"+nameTF.getText());
-                    }*/
+                        System.out.println("Wysylam");
+                        sendData("Add"+"\n"+titleTF.getText() +"\n"+ nameTF.getText() +"\n"+ surNameTF.getText() +"\n"+ String.valueOf(dateTF.getDate())+"\n"+String.valueOf(statusCB.getSelectedItem()));
+                        for(JTextField s:pola){
+                            s.setText("");
+                        }
+                    }
                 }
             }
         });
@@ -145,7 +156,7 @@ public class Client extends JFrame implements Runnable {
                     JScrollPane jscrlp = new JScrollPane(jTabPeople);
                     newPanel.setPreferredSize(new Dimension(230, 100));
                     newPanel.add(jscrlp);
-                    jscrlp.setBounds(230, 5, 500, 100);
+                    jscrlp.setBounds(230, 5, 1050, 400);
                 }
 
             }
@@ -195,6 +206,7 @@ public class Client extends JFrame implements Runnable {
         newPanel.add(name);
         newPanel.add(surName);
         newPanel.add(date);
+        newPanel.add(status);
 
         jFrame.validate();
 
@@ -203,26 +215,33 @@ public class Client extends JFrame implements Runnable {
         name.setBounds(12, 79, 50, 20);
         surName.setBounds(12, 113, 50, 20);
         date.setBounds(12, 147, 50, 20);
+        status.setBounds(12, 181, 50, 20);
 
         newPanel.add(idTF);
         newPanel.add(titleTF);
         newPanel.add(nameTF);
         newPanel.add(surNameTF);
         newPanel.add(dateTF);
+        newPanel.add(statusCB);
 
-        idTF.setBounds(70, 12, 120, 20);
-        titleTF.setBounds(70, 46, 120, 20);
-        nameTF.setBounds(70, 79, 120, 20);
-        surNameTF.setBounds(70, 113, 120, 20);
-        dateTF.setBounds(70, 147, 120, 20);
+        Locale locale = new Locale("pl","PL");
+        dateTF.setLocale(locale);
+
+        idTF.setBounds(70, 12, 130, 20);
+        titleTF.setBounds(70, 46, 130, 20);
+        nameTF.setBounds(70, 79, 130, 20);
+        surNameTF.setBounds(70, 113, 130, 20);
+        dateTF.setBounds(70, 147, 130, 20);
+        statusCB.setBounds(70, 181, 130, 20);
+
 
         newPanel.add(add);
         newPanel.add(delete);
         newPanel.add(update);
 
-        add.setBounds(12, 181, 178, 20);
-        update.setBounds(12, 215, 178, 20);
-        delete.setBounds(12, 249, 178, 20);
+        add.setBounds(12, 215, 188, 20);
+        update.setBounds(12, 249, 188, 20);
+        delete.setBounds(12, 283, 188, 20);
 
 
 
@@ -234,7 +253,7 @@ public class Client extends JFrame implements Runnable {
         JScrollPane jscrlp = new JScrollPane(jTabPeople);
         newPanel.setPreferredSize(new Dimension(230, 100));
         newPanel.add(jscrlp);
-        jscrlp.setBounds(230, 5, 500, 100);
+        jscrlp.setBounds(230, 5, 1050, 400);
 
     }
 
@@ -243,10 +262,10 @@ public class Client extends JFrame implements Runnable {
         for (int i = 0; i < serverData.length; i++) {
             a += serverData[i];
         }
-        String[] newServerData = a.split(" ");
-        String[][] table = new String[newServerData.length / 3][3];
+        String[] newServerData = a.split("\n");
+        String[][] table = new String[newServerData.length / 6][6];
         int count=0;
-        for(int i=0;i<3;i++){
+        for(int i=0;i<6;i++){
             for(int j=0;j<table.length;j++){
                 table[j][i]=newServerData[count];
                 count++;

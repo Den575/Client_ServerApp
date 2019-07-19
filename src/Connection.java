@@ -26,27 +26,34 @@ public class Connection {
              Statement statement = connection.createStatement()) {
             System.out.println("Connection");
             Server server = new Server();
-            if(data[0]=="" && data[1]==""){
+            if (data[0].equals("Add")){// Add records
+                System.out.println("Dodaje na server");
+                statement.executeUpdate("INSERT INTO movies (title,name,surname,date,status) VALUES('"+data[1]+"','"+data[2]+"','"+data[3]+"','"+data[4]+"','"+data[5]+"');");
+                server.addData(true);
                 return;
             }
-            if(data[0].equals("Table") && data[1].equals("Data")){
-                ResultSet resultSet = statement.executeQuery("select * from users;");
+            if(data[0].equals("Table") && data[1].equals("Data")){ //Otrzymujemy wszystkie dane z tabeli
+                ResultSet resultSet = statement.executeQuery("select * from movies;");
                 String id="";
-                String user="";
-                String pass="";
+                String title="";
+                String name="";
+                String surname="";
+                String date="";
+                String status="";
                 while (resultSet.next()) {
-                    id += resultSet.getString("id")+" ";
-                    user += resultSet.getString("user")+" ";
-                    pass += resultSet.getString("pass")+" ";
+                    id += resultSet.getString("id")+"\n";
+                    title += resultSet.getString("title")+"\n";
+                    name += resultSet.getString("name")+"\n";
+                    surname += resultSet.getString("surname")+"\n";
+                    date += resultSet.getString("date")+"\n";
+                    status += resultSet.getString("status")+"\n";
                 }
-                String[] tab ={id,user,pass};
+                String[] tab ={id,title,name,surname,date,status};
                 server.tableData(tab);
                 return;
             }
             try {
-
                 ResultSet resultSet = statement.executeQuery("select * from users where user = '"+data[0]+"' and pass = '"+data[1]+"';");
-                //statement.executeUpdate("CREATE TABLE `"+a+"` (`user_id` INT(5) NOT NULL AUTO_INCREMENT, `username` VARCHAR(50), PRIMARY KEY(`user_id`), INDEX(`username`));");
                 server.logIn(resultSet.next());
             }catch (Exception e){
             }
