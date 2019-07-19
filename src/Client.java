@@ -1,16 +1,20 @@
 import com.toedter.calendar.JDateChooser;
+import javafx.scene.image.Image;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.net.URL;
 import java.net.UnknownHostException;
 import java.awt.Dimension;
 import java.util.Locale;
@@ -90,8 +94,12 @@ public class Client extends JFrame implements Runnable {
         jButton.setBounds(25, 100, 179, 20);
         jPanel.add(jButton);
 
+        statusCB.addItem(null);
         statusCB.addItem("Wypożyczony");
         statusCB.addItem("Nie wypożyczony");
+        statusCB.addItem("Brak");
+
+
 
         jPanel.revalidate();
 
@@ -101,6 +109,7 @@ public class Client extends JFrame implements Runnable {
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == jButton) {
                     if (jTextField.getText().equals("") && jPasswordField.getText().equals("")) {
+                        JOptionPane.showMessageDialog(null,"Poprosze uzupewnic wszystkie pola");
                         return;
                     } else {
                         sendData(jTextField.getText() + "\n" + jPasswordField.getText());
@@ -114,15 +123,42 @@ public class Client extends JFrame implements Runnable {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == add) {
-                    if (idTF.getText().equals("") && titleTF.getText().equals("") && nameTF.getText().equals("") && surNameTF.getText().equals("")  && dateTF.getDate().toString().equals("") && statusCB.getAction().toString().equals("")){
+                    if (checkText()){
                         return;
                     }
                     else{
-                        System.out.println("Wysylam");
-                        sendData("Add"+"\n"+titleTF.getText() +"\n"+ nameTF.getText() +"\n"+ surNameTF.getText() +"\n"+ String.valueOf(dateTF.getDate())+"\n"+String.valueOf(statusCB.getSelectedItem()));
-                        for(JTextField s:pola){
-                            s.setText("");
-                        }
+                        sendDataTable("Add");
+                        for(JTextField j:pola){
+                            j.setText("");
+                        }dateTF.setDate(null);
+                    }
+                }
+            }
+        });
+
+        update.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() == update) {
+                    if(checkText()){
+                        return;
+                    }
+                    else {
+                        sendDataTable("Update");
+                    }
+                }
+            }
+        });
+
+        delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() == delete) {
+                    if(checkText()){
+                        return;
+                    }
+                    else {
+                        sendDataTable("Delete");
                     }
                 }
             }
@@ -156,9 +192,8 @@ public class Client extends JFrame implements Runnable {
                     JScrollPane jscrlp = new JScrollPane(jTabPeople);
                     newPanel.setPreferredSize(new Dimension(230, 100));
                     newPanel.add(jscrlp);
-                    jscrlp.setBounds(230, 5, 1050, 400);
+                    jscrlp.setBounds(230, 12, 1060, 290);
                 }
-
             }
         } catch (UnknownHostException e) {
         } catch (IOException e) {
@@ -173,7 +208,17 @@ public class Client extends JFrame implements Runnable {
             output.flush();
             output.writeObject(obj);
         } catch (IOException e) {
+        }
+    }
 
+    private static void  sendDataTable(String option){
+        try {
+            output.flush();
+            output.writeObject(option+"\n"+idTF.getText()+"\n"+titleTF.getText() +"\n"+ nameTF.getText() +"\n"+ surNameTF.getText() +"\n"+ String.valueOf(dateTF.getDate())+"\n"+String.valueOf(statusCB.getSelectedItem()));
+            for(JTextField j:pola){
+                j.setText("");
+            }dateTF.setDate(null);
+        } catch (IOException e) {
         }
     }
 
@@ -253,7 +298,8 @@ public class Client extends JFrame implements Runnable {
         JScrollPane jscrlp = new JScrollPane(jTabPeople);
         newPanel.setPreferredSize(new Dimension(230, 100));
         newPanel.add(jscrlp);
-        jscrlp.setBounds(230, 5, 1050, 400);
+        jscrlp.setBounds(230, 12, 1060, 290);
+
 
     }
 
@@ -272,5 +318,20 @@ public class Client extends JFrame implements Runnable {
             }
         }
     return table;
+    }
+
+    public Boolean checkText() {//Dopracowac
+        /*if (idTF.getText().equals("") || titleTF.getText().equals("") || nameTF.getText().equals("") || surNameTF.getText().equals("")) {
+            for (JTextField j : pola) {
+                j.setForeground(Color.RED);
+            }
+            JOptionPane.showMessageDialog(null, "Poprosze uzupewnic wszystkie pola");
+            return true;
+        } else {
+            for (JTextField j : pola) {
+                j.setForeground(Color.BLACK);
+            }
+        }*/
+        return false;
     }
 }

@@ -21,5 +21,6 @@
         PRIMARY KEY(`id`)
     )<br>
 3)INSERT INTO users (user,pass) VALUES('root','start001');<br>
-4)INSERT INTO movies (title,name,surname,date,status) VALUES('','','','','');</b></p><br>
+4)INSERT INTO movies (title,name,surname,date,status) VALUES('','','','','');</b><br>
+5)<b>UPDATE movies SET name='', surname='',date='', status='' WHERE title ='';</b></p><br>
 

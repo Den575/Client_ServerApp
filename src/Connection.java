@@ -27,8 +27,19 @@ public class Connection {
             System.out.println("Connection");
             Server server = new Server();
             if (data[0].equals("Add")){// Add records
-                System.out.println("Dodaje na server");
-                statement.executeUpdate("INSERT INTO movies (title,name,surname,date,status) VALUES('"+data[1]+"','"+data[2]+"','"+data[3]+"','"+data[4]+"','"+data[5]+"');");
+                System.out.println("Dodaje na rekord");
+                statement.executeUpdate("INSERT INTO movies (title,name,surname,date,status) VALUES('"+data[2]+"','"+data[3]+"','"+data[4]+"','"+data[5]+"','"+data[6]+"');");
+                server.addData(true);
+                return;
+            }
+            else if(data[0].equals("Update")){//Update rekord
+                System.out.println("Update rekordu");
+                statement.executeUpdate("UPDATE movies SET title='"+data[2]+"',name='"+data[3]+"', surname='"+data[4]+"',date='"+data[5]+"', status='"+data[6]+"' WHERE id ='"+data[1]+"';");
+                server.addData(true);
+                return;
+            }else if(data[0].equals("Delete")){//Delete rekord
+                System.out.println("Delete rekord");
+                statement.executeUpdate("DELETE FROM movies where id='"+data[1]+"';");
                 server.addData(true);
                 return;
             }
