@@ -26,3 +26,4 @@ CREATE TABLE<br>
 5)UPDATE movies SET name='', surname='',date='', status='' WHERE title ='';<br>
 6)DELETE FROM movies where title='';</p><br>
 </code></pre>
+<a href="https://dev.mysql.com/downloads/installer/">Download mySQL</a>
