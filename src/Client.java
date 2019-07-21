@@ -27,6 +27,7 @@ public class Client extends JFrame implements Runnable {
     static private ObjectInputStream input;
 
     static JTable jTabPeople;
+    static JMenuBar jMenuBar = new JMenuBar();
 
     static Toolkit toolkit = Toolkit.getDefaultToolkit();
     static Dimension dimension = toolkit.getScreenSize();
@@ -288,7 +289,44 @@ public class Client extends JFrame implements Runnable {
         update.setBounds(12, 249, 188, 20);
         delete.setBounds(12, 283, 188, 20);
 
+        JMenu settings = new JMenu("Settings");
+        jMenuBar.add(settings);
 
+        settings.add(new JMenuItem("About")).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null,"Aplikacje zrobil ****** *******");
+            }
+        });
+        settings.add(new JMenuItem("Help")).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null,"Dzieki aplikacji uzytkownik moze:\n1)Pobierac aktualne dane " +
+                        "odnosnie filmu\n" +
+                        "2)Dodawac nowe rekordy\n" +
+                        "3)Edytowac rekordy\n" +
+                        "4)Usuwac rekordy");
+            }
+        });
+        settings.add(new JMenuItem("Color")).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Color c = JColorChooser.showDialog(null, "Wprowadz kolor", Color.WHITE);
+                newPanel.setBackground(c);
+            }
+        });
+        settings.addSeparator();
+        settings.add(new JMenuItem("Exit")).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+
+
+        jFrame.setJMenuBar(jMenuBar);
+        jFrame.revalidate();
 
         Object[][] objects={};
         jTabPeople = new JTable(objects, headers);
