@@ -5,16 +5,13 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.net.URL;
 import java.net.UnknownHostException;
 import java.awt.Dimension;
 import java.util.Locale;
@@ -25,6 +22,8 @@ public class Client extends JFrame implements Runnable {
     static private Socket connection;
     static private ObjectOutputStream output;
     static private ObjectInputStream input;
+
+    boolean logic = true;
 
     static JTable jTabPeople;
     static JMenuBar jMenuBar = new JMenuBar();
@@ -100,8 +99,6 @@ public class Client extends JFrame implements Runnable {
         statusCB.addItem("Nie wypożyczony");
         statusCB.addItem("Brak");
 
-
-
         jPanel.revalidate();
 
         //Log in
@@ -137,6 +134,7 @@ public class Client extends JFrame implements Runnable {
             }
         });
 
+        //Button Update Action
         update.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -151,6 +149,7 @@ public class Client extends JFrame implements Runnable {
             }
         });
 
+        //Button Delete Action
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -174,14 +173,12 @@ public class Client extends JFrame implements Runnable {
                 connection = new Socket(InetAddress.getByName("127.0.0.1"), 5678);
                 output = new ObjectOutputStream(connection.getOutputStream());
                 input = new ObjectInputStream(connection.getInputStream());
-               try{
-                   TimeUnit.SECONDS.sleep(2);
+
+               if(logic==true){
+                   logic=false;
+                   sendData("Table");
                }
-               catch (InterruptedException e){
-               }
-                sendData("Table\nData");
                 String[] a = (String[]) input.readObject();
-                //JOptionPane.showMessageDialog(null,a);
                 if (a[0].equals("Successful login")) {
                     newPanel();
                 } else if (a[0].equals("Not successful login")) {
@@ -194,6 +191,7 @@ public class Client extends JFrame implements Runnable {
                     newPanel.setPreferredSize(new Dimension(230, 100));
                     newPanel.add(jscrlp);
                     jscrlp.setBounds(230, 12, 1060, 290);
+
                 }
             }
         } catch (UnknownHostException e) {
@@ -212,6 +210,7 @@ public class Client extends JFrame implements Runnable {
         }
     }
 
+    //Metoda wysyla dane do bazy danych tabeli movie
     private static void  sendDataTable(String option){
         try {
             output.flush();
@@ -234,6 +233,7 @@ public class Client extends JFrame implements Runnable {
         jFrame.setTitle("MOVIE Rental");
         ImageIcon imageIcon = new ImageIcon("Resurses/clapperboard.png");
         jFrame.setIconImage(imageIcon.getImage());
+
         return jFrame;
     }
 
@@ -313,6 +313,7 @@ public class Client extends JFrame implements Runnable {
             public void actionPerformed(ActionEvent e) {
                 Color c = JColorChooser.showDialog(null, "Wprowadz kolor", Color.WHITE);
                 newPanel.setBackground(c);
+
             }
         });
         settings.addSeparator();
@@ -322,25 +323,48 @@ public class Client extends JFrame implements Runnable {
                 System.exit(0);
             }
         });
+        JMenu design = new JMenu("Design");
+        settings.add(design);
+        design.add(new JMenuItem("Metal")).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+                }catch (Exception el){
+                    el.printStackTrace();
+                }
+            }
+        });
 
+        design.add(new JMenuItem("Nimbus")).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+                }catch (Exception el){
+                    el.printStackTrace();
+                }
+            }
+        });
+
+        design.add(new JMenuItem("Motif")).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
+                }catch (Exception el){
+                    el.printStackTrace();
+                }
+            }
+        });
 
 
         jFrame.setJMenuBar(jMenuBar);
         jFrame.revalidate();
 
-        Object[][] objects={};
-        jTabPeople = new JTable(objects, headers);
-        jTabPeople.setBackground(Color.LIGHT_GRAY);
-        jTabPeople.setForeground(Color.BLACK);
-        newPanel.add(jTabPeople);
-        JScrollPane jscrlp = new JScrollPane(jTabPeople);
-        newPanel.setPreferredSize(new Dimension(230, 100));
-        newPanel.add(jscrlp);
-        jscrlp.setBounds(230, 12, 1060, 290);
-
-
     }
 
+    //Metoda sortyruje tabele
     public Object[][] getObform(String[] serverData) {
         String a = "";
         for (int i = 0; i < serverData.length; i++) {
@@ -358,6 +382,7 @@ public class Client extends JFrame implements Runnable {
     return table;
     }
 
+    //Sprawdza czy pola
     public Boolean checkText() {//Dopracowac
         /*if (idTF.getText().equals("") || titleTF.getText().equals("") || nameTF.getText().equals("") || surNameTF.getText().equals("")) {
             for (JTextField j : pola) {

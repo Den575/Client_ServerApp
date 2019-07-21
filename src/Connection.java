@@ -11,11 +11,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Connection {
-    public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, XMLStreamException, SQLException, ClassNotFoundException {
+    public static void main(String[] args){
 
         }
-
-
     public void connecting(String[] data) throws ParserConfigurationException, IOException, SAXException, XMLStreamException, SQLException, ClassNotFoundException {
         System.out.println("Connecting...");
         String userName = "root";
@@ -24,26 +22,22 @@ public class Connection {
         Class.forName("com.mysql.jdbc.Driver");
         try (java.sql.Connection connection = DriverManager.getConnection(connectiesUrl, userName, password);
              Statement statement = connection.createStatement()) {
-            System.out.println("Connection");
             Server server = new Server();
             if (data[0].equals("Add")){// Add records
                 System.out.println("Dodaje na rekord");
                 statement.executeUpdate("INSERT INTO movies (title,name,surname,date,status) VALUES('"+data[2]+"','"+data[3]+"','"+data[4]+"','"+data[5]+"','"+data[6]+"');");
-                server.addData(true);
-                return;
+                data[0]="Table";
             }
             else if(data[0].equals("Update")){//Update rekord
                 System.out.println("Update rekordu");
                 statement.executeUpdate("UPDATE movies SET title='"+data[2]+"',name='"+data[3]+"', surname='"+data[4]+"',date='"+data[5]+"', status='"+data[6]+"' WHERE id ='"+data[1]+"';");
-                server.addData(true);
-                return;
+                data[0]="Table";
             }else if(data[0].equals("Delete")){//Delete rekord
                 System.out.println("Delete rekord");
                 statement.executeUpdate("DELETE FROM movies where id='"+data[1]+"';");
-                server.addData(true);
-                return;
+                data[0]="Table";
             }
-            if(data[0].equals("Table") && data[1].equals("Data")){ //Otrzymujemy wszystkie dane z tabeli
+            if(data[0].equals("Table")){ //Otrzymujemy wszystkie dane z tabeli
                 ResultSet resultSet = statement.executeQuery("select * from movies;");
                 String id="";
                 String title="";
@@ -60,6 +54,7 @@ public class Connection {
                     status += resultSet.getString("status")+"\n";
                 }
                 String[] tab ={id,title,name,surname,date,status};
+                System.out.println("Przesylka");
                 server.tableData(tab);
                 return;
             }

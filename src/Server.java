@@ -68,14 +68,4 @@ public class Server implements Runnable {
         }
         catch (IOException e){ }
     }
-
-    public void addData(Boolean add){
-        try{
-            String[] adData = {"Not successful login"};
-            output.writeObject(adData);
-            System.out.println("Add Data");
-        }
-        catch (IOException e){ }
-    }
-
 }
