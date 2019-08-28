@@ -5,6 +5,8 @@
       <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Server.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../SpringJava/sweater/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../SpringJava/sweater/src/main/java/hello/Application.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../SpringJava/sweater/src/main/java/hello/MainController.java" afterDir="false" />
@@ -18,14 +20,9 @@
       <change afterPath="$PROJECT_DIR$/../Практика/src/main/java/ru/denis/springl1/TestSpring.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Практика/src/main/resourses/applicationContext.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerApp/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerApp/Client$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerApp/Client$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerApp/Client$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerApp/Client$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerApp/Client$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerApp/Client$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerApp/Client$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerApp/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerApp/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ServerApp/Client$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerApp/Client$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Connection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -82,15 +79,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4100">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="102">
+              <caret line="6" column="18" lean-forward="true" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#10866#10867#0" expanded="true" />
-                <element signature="e#10912#10913#0" expanded="true" />
+                <element signature="e#9734#9735#0" expanded="true" />
+                <element signature="e#9823#9824#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,8 +95,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Connection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="63" column="33" lean-forward="true" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
+            <state>
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -111,17 +106,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="901">
-              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+            <state relative-caret-position="253">
+              <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/46b5a755-7413-44ec-a979-c047755a9d59/console.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="44" selection-start-column="44" selection-end-column="44" />
+              <caret column="12" selection-start-column="12" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -163,17 +158,17 @@
         <option value="$PROJECT_DIR$/src/MenuMain.java" />
         <option value="$PROJECT_DIR$/src/Ser.java" />
         <option value="$PROJECT_DIR$/src/LOl.form" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/46b5a755-7413-44ec-a979-c047755a9d59/console.sql" />
         <option value="$PROJECT_DIR$/src/Server.java" />
-        <option value="$PROJECT_DIR$/src/Connection.java" />
         <option value="$PROJECT_DIR$/src/Client.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/46b5a755-7413-44ec-a979-c047755a9d59/console.sql" />
+        <option value="$PROJECT_DIR$/src/Connection.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+    <option name="x" value="-10" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -183,7 +178,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -205,6 +199,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -214,7 +209,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -339,16 +334,21 @@
       <workItem from="1563622926837" duration="644000" />
       <workItem from="1563718888070" duration="4803000" />
       <workItem from="1563742788597" duration="5970000" />
+      <workItem from="1563789928340" duration="471000" />
+      <workItem from="1564136838105" duration="248000" />
+      <workItem from="1565536777641" duration="549000" />
+      <workItem from="1566936548302" duration="3066000" />
+      <workItem from="1566978532391" duration="942000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108772000" />
+    <option name="totallyTimeSpent" value="114048000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1328859" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14295302" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -362,7 +362,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="7" visible="true" weight="0.32378224" />
+      <window_info anchor="bottom" id="Database Console" order="7" weight="0.32152975" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3286119" />
@@ -459,39 +459,37 @@
     <entry file="file://$PROJECT_DIR$/src/Ser.java" />
     <entry file="file://$PROJECT_DIR$/src/LOl.java" />
     <entry file="file://$PROJECT_DIR$/src/LOl.form" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/46b5a755-7413-44ec-a979-c047755a9d59/console.sql">
+    <entry file="file://$PROJECT_DIR$/src/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="44" selection-start-column="44" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+        <state relative-caret-position="102">
+          <caret line="6" column="18" lean-forward="true" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+          <folding>
+            <element signature="e#9734#9735#0" expanded="true" />
+            <element signature="e#9823#9824#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Connection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="63" column="33" lean-forward="true" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
+        <state>
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Client.java">
+    <entry file="file://$PROJECT_DIR$/src/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4100">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#10866#10867#0" expanded="true" />
-            <element signature="e#10912#10913#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="253">
+          <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/46b5a755-7413-44ec-a979-c047755a9d59/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
         </state>
       </provider>
     </entry>

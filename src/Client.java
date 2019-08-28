@@ -295,7 +295,7 @@ public class Client extends JFrame implements Runnable {
         settings.add(new JMenuItem("About")).addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null,"Aplikacje zrobil ****** *******");
+                JOptionPane.showMessageDialog(null,"Author Mateusz Woch");
             }
         });
         settings.add(new JMenuItem("Help")).addActionListener(new ActionListener() {
